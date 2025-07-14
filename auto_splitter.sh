@@ -2,7 +2,7 @@
 
 input=$1
 
-silent_times=$(ffmpeg -i $input -af silencedetect -f null - |& grep -o -P '(?<=silence_start: )[0-9]{0,50}\.[0-9]{0,50}|(?<=silence_end: )[0-9]{0,50}\.[0-9]{0,50}')
+silent_times=$(ffmpeg -i $input -af silencedetect=d=0.5 -f null - |& grep -o -P '(?<=silence_start: )[0-9]{0,50}\.[0-9]{0,50}|(?<=silence_end: )[0-9]{0,50}\.[0-9]{0,50}')
 echo -e "$silent_times"
 times_csv=$(echo -e "$silent_times" | tr '\n' ',')
 echo $times_csv
