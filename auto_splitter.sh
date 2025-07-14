@@ -17,11 +17,3 @@ ffmpeg -i $input -f segment -segment_times $times_csv -reset_timestamps 1 -map 0
 # The jankiest of jank solutions, but exile anything less than 2Mb to the shadow realm. 
 # This may nix some songs that are under 1:30 but c'est la vie
 find . -type f -maxdepth 1 -size -2000k -exec mv {} junk/ \;
-
-#for time in "$silent_times[@]"; do
-#    
-#    dt=$(date "+%F-%T")
-#    output_name=${dt}.m4a
-#    ffmpeg -i $input -f segment -segment_times $time -reset_timestamps 1 -map 0:a -c:a copy $output_name.m4a
-#    ffmpeg -i $output_name -af silenceremove=1:0:-50dB ${output_name}_silence_removed.m4a
-#done
