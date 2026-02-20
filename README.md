@@ -1,5 +1,7 @@
 # audio_splitter
 
+This repo contains 2 very simple scripts that call fmmpeg. You can use it to take a large audio file with multiple songs and split it by song using the silent pauses between songs. Currently it will separate small fragment files produced (little segments of silence or a short segment between songs) and move them to a separate folder called "junk". 
+
 ## Usage
 
 Clone the repo:
